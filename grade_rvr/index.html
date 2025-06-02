@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGPA/CGPA Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="tobi.jpg" sizes="250x248"><i class="fa-solid fa-calculator"></i>
+  <style>
+    html, body {
+      height: 100%;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+    @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+      }
+
+      .form-control, .form-select {
+        font-size: 1.05rem;
+        padding: 0.65rem 1rem;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="text-center mb-4">
+      <h1>SGPA/CGPA Calculator</h1>
+    </div>
+
+    <ul class="nav nav-tabs mb-4" id="calculatorTabs" role="tablist">
+      <li class="nav-item">
+        <button class="nav-link active" id="sgpa-tab" data-bs-toggle="tab" data-bs-target="#sgpa" type="button">SGPA</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="cgpa-tab" data-bs-toggle="tab" data-bs-target="#cgpa" type="button">CGPA</button>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="sgpa">
+        <div id="sgpaSubjects">
+          <div class="row g-2">
+            <div class="col">
+              <input type="number" class="form-control" placeholder="Credits" step="0.1" min="0">
+            </div>
+            <div class="col">
+              <select class="form-select">
+                <option value="10">A+</option>
+                <option value="9">A</option>
+                <option value="8">B</option>
+                <option value="7">C</option>
+                <option value="6">D</option>
+                <option value="5">E</option>
+                <option value="0">F</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-success" id="addSubject">Add Subject</button>
+        <button class="btn btn-primary" id="calculateSGPA">Calculate SGPA</button>
+        <div id="sgpaResult"></div>
+      </div>
+
+      <div class="tab-pane fade" id="cgpa">
+        <div class="mb-3">
+          <label for="numSemesters">Number of Semesters</label>
+          <input type="number" class="form-control" id="numSemesters" min="1" value="1">
+        </div>
+        <div id="cgpaSemesters"></div>
+        <button class="btn btn-primary" id="calculateCGPA">Calculate CGPA</button>
+        <div id="cgpaResult"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center mt-auto py-3 text-muted">
+    &copy; 2025 SGPA/CGPA Calculator. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
